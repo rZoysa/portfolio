@@ -7,7 +7,7 @@ export default function Projects() {
       description: "A short description of your Flutter app.",
       link: "https://github.com/rZoysa/BeGlamourous",
       images: [
-        "../public/images/be_glamourous/landing_page.jpg",
+        "../images/be_glamourous/landing_page.png",
         "https://cdn.dribbble.com/userupload/31551725/file/original-369ff8277fc7c3ab9fe8d5a3dd86c835.jpg",
       ],
     },
