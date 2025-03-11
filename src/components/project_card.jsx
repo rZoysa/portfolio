@@ -23,7 +23,7 @@ export default function ProjectCard({ title, description, link, images }) {
               <img
                 src={image}
                 alt={`Slide ${index}`}
-                className="w-full h-64 object-cover"
+                className="w-full h-64 object-cover cursor-grab active:cursor-grabbing"
               />
             </SwiperSlide>
           ))}

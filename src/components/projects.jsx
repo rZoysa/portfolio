@@ -3,12 +3,12 @@ import ProjectCard from "./project_card";
 export default function Projects() {
   const projectList = [
     {
-      title: "Project One",
+      title: "Be Glamourous",
       description: "A short description of your Flutter app.",
-      link: "https://github.com/yourproject1",
+      link: "https://github.com/rZoysa/BeGlamourous",
       images: [
-        "https://crocodic.com/wp-content/uploads/2016/10/thumbnail-news-manfaat-mobile-app-565c154db3d7d-620x350.jpg",
-        "https://mir-s3-cdn-cf.behance.net/projects/404/9ff9f4214855313.Y3JvcCwyODAwLDIxOTAsMCw5Nw.png",
+        "../public/images/be_glamourous/landing_page.jpg",
+        "https://cdn.dribbble.com/userupload/31551725/file/original-369ff8277fc7c3ab9fe8d5a3dd86c835.jpg",
       ],
     },
     {
@@ -16,8 +16,8 @@ export default function Projects() {
       description: "Another brief description of your project.",
       link: "https://github.com/yourproject2",
       images: [
-        "https://crocodic.com/wp-content/uploads/2016/10/thumbnail-news-manfaat-mobile-app-565c154db3d7d-620x350.jpg",
         "https://mir-s3-cdn-cf.behance.net/projects/404/9ff9f4214855313.Y3JvcCwyODAwLDIxOTAsMCw5Nw.png",
+        "https://cdn.dribbble.com/userupload/31551725/file/original-369ff8277fc7c3ab9fe8d5a3dd86c835.jpg",
       ],
     },
     {
@@ -25,8 +25,8 @@ export default function Projects() {
       description: "An innovative mobile app built with Flutter.",
       link: "https://yourapp.com",
       images: [
-        "https://crocodic.com/wp-content/uploads/2016/10/thumbnail-news-manfaat-mobile-app-565c154db3d7d-620x350.jpg",
         "https://mir-s3-cdn-cf.behance.net/projects/404/9ff9f4214855313.Y3JvcCwyODAwLDIxOTAsMCw5Nw.png",
+        "https://cdn.dribbble.com/userupload/31551725/file/original-369ff8277fc7c3ab9fe8d5a3dd86c835.jpg",
       ],
     },
   ];
