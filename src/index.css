@@ -3,3 +3,13 @@
 html{
     scroll-behavior: smooth;
 }
+
+@layer utilities {
+    .cursor-custom-left {
+      cursor: url('../public/cursor-left.png'), auto;
+    }
+    .cursor-custom-right {
+      cursor: url('../public/cursor-right.png'), auto;
+    }
+  }
+  
