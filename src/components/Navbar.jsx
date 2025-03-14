@@ -1,8 +1,6 @@
-
-
 export default function Navbar() {
   return (
-    <nav className="bg-blue-900 text-white p-4 sticky top-0 z-10">
+    <nav className="bg-white/20 backdrop-blur-lg text-white p-4 sticky top-0 z-10 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-xl font-bold">My Portfolio</h1>
         <div>
