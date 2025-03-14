@@ -2,7 +2,8 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/home";
 import About from "./components/About";
-import Projects from "./components/Projects";
+import Experience from "./components/experience";
+import Projects from "./components/projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -12,6 +13,7 @@ export default function App() {
       <Navbar />
       <Home />
       <About />
+      <Experience />
       <Projects />
       <Contact />
       <Footer />
