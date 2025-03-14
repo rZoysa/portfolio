@@ -37,7 +37,10 @@ export default function Experience() {
 
 export function TechnologyCard({ image, name }) {
   return (
-    <div className="bg-white/5 rounded-2xl w-44 h-44 flex flex-col items-center justify-center p-4 hover:bg-white/10 hover:scale-105 transition-transform cursor-pointer">
+    <div
+      className="bg-white/5 rounded-2xl w-44 h-44 flex flex-col items-center justify-center p-4 
+    hover:bg-white/10 hover:scale-105 transition-transform cursor-pointer duration-300"
+    >
       <img src={image} className="w-full h-24 object-contain" alt={name} />
       <p className="text-lg text-white mt-3">{name}</p>
     </div>
