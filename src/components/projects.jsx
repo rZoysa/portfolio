@@ -23,7 +23,7 @@ export default function Projects() {
     },
     {
       title: "Cool Flutter App",
-      description: "An innovative mobile app built with Flutter.",
+      description: "An innovative mobile app built with Flutter",
       link: "https://yourapp.com",
       images: [
         "https://mir-s3-cdn-cf.behance.net/projects/404/9ff9f4214855313.Y3JvcCwyODAwLDIxOTAsMCw5Nw.png",
