@@ -31,10 +31,13 @@ export default function Projects() {
       ],
     },
   ];
+
   return (
-    <section id="projects" className="py-20 px-10 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-semibold text-center">Projects</h2>
-      <div className="grid md:grid-cols-2 gap-6 mt-6">
+    <section id="projects" className="py-16 px-4 sm:px-10 max-w-7xl mx-auto">
+      <h2 className="text-3xl font-semibold text-center text-white">Projects</h2>
+
+      {/* Grid Layout for Projects */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
         {projectList.map((project, index) => (
           <ProjectCard
             key={index}
