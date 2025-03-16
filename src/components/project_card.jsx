@@ -63,7 +63,7 @@ export default function ProjectCard({ title, description, link, images }) {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
+          className="mt-4 inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg mb-2"
         >
           View Project
         </a>
