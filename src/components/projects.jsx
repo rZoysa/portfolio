@@ -19,15 +19,7 @@ export default function Projects() {
       description: "Working as a freelance fullstack developer in this project for Standard Industries (Pvt) Ltd Bombuwala",
       link: "",
       images: ["../images/standard/1.png"],
-    },
-    {
-      title: "Cool Flutter App",
-      description: "An innovative mobile app built with Flutter",
-      link: "",
-      images: [
-        "https://mir-s3-cdn-cf.behance.net/projects/404/9ff9f4214855313.Y3JvcCwyODAwLDIxOTAsMCw5Nw.png",
-        "https://cdn.dribbble.com/userupload/31551725/file/original-369ff8277fc7c3ab9fe8d5a3dd86c835.jpg",
-      ],
+      technologies: ["Flutter", "Dart", "React", "JavaScript", "Node.js & Express.js", "MySQL"],
     },
   ];
 
