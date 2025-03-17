@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import Home from "./components/home";
-import About from "./components/About";
+import About from "./components/about";
 import Experience from "./components/experience";
 import Projects from "./components/projects";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Contact from "./components/contact";
+import Footer from "./components/footer";
 
 export default function App() {
   return (
