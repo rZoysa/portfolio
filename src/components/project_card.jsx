@@ -6,7 +6,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function ProjectCard({ title, description, link, images }) {
+export default function ProjectCard({
+  title,
+  description,
+  link,
+  images,
+  technologies,
+}) {
   const swiperRef = useRef(null);
 
   // Function to navigate Swiper
@@ -31,25 +37,28 @@ export default function ProjectCard({ title, description, link, images }) {
           autoplay={{ delay: 1000 }}
           pagination={{ clickable: false }}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          className="rounded-bl-lg rounded-tl-lg"
+          className="rounded-bl-lg rounded-tl-lg w-full h-full"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index} className="relative">
               <img
                 src={image}
                 alt={`Slide ${index}`}
-                className="w-full h-64 object-cover"
+                className="w-full h-full object-fill"
               />
 
-              <div
-                className="absolute top-0 left-0 h-full w-1/2 cursor-custom-left"
-                onClick={() => handleSlide("left")}
-              ></div>
-
-              <div
-                className="absolute top-0 right-0 h-full w-1/2 cursor-custom-right"
-                onClick={() => handleSlide("right")}
-              ></div>
+              {images.length > 1 ? (
+                <div>
+                  <div
+                    className="absolute top-0 left-0 h-full w-1/2 cursor-custom-left"
+                    onClick={() => handleSlide("left")}
+                  ></div>
+                  <div
+                    className="absolute top-0 right-0 h-full w-1/2 cursor-custom-right"
+                    onClick={() => handleSlide("right")}
+                  ></div>
+                </div>
+              ) : null}
             </SwiperSlide>
           ))}
         </Swiper>
@@ -59,14 +68,30 @@ export default function ProjectCard({ title, description, link, images }) {
       <div className="flex-1 text-center md:text-left md:ml-6">
         <h3 className="text-xl font-semibold">{title}</h3>
         <p className="text-gray-400">{description}</p>
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg mb-2"
-        >
-          View Project
-        </a>
+        <div>
+          {technologies && (
+            <div className="flex flex-wrap justify-center md:justify-start mt-4">
+              {technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="px-2 py-1 bg-gray-700 text-sm text-white rounded-full mr-2 mb-2"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        {link !== "" ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg mb-2"
+          >
+            View Project
+          </a>
+        ) : null}
       </div>
     </div>
   );
