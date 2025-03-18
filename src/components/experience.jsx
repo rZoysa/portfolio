@@ -31,7 +31,7 @@ export default function Experience() {
   ];
 
   return (
-    <div id="experience" className="flex justify-center pt-20 px-4 sm:px-10">
+    <div id="experience" className="flex justify-center py-20 px-4 sm:px-10">
       <div className="flex flex-col w-full max-w-6xl">
         <h1 className="text-4xl font-bold text-center text-white mb-5">
           Experience
