@@ -26,11 +26,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - Fix with Height Animation */}
+      {/* Mobile Menu - Smooth Height and Opacity Animation */}
       <div
         className={`overflow-hidden text-white flex flex-col items-center font-bold
-        transition-all duration-300 ease-in-out 
-        ${isOpen ? "h-auto py-4 opacity-100" : "h-0 py-0 opacity-0"}`}
+        transition-all duration-500 ease-in-out
+        ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}
+        style={{ maxHeight: isOpen ? "300px" : "0px", transitionProperty: "max-height, opacity" }}  // control max-height and opacity
       >
         <a href="#" className="py-2 text-lg hover:text-gray-300" onClick={() => setIsOpen(false)}>Home</a>
         <a href="#about" className="py-2 text-lg hover:text-gray-300" onClick={() => setIsOpen(false)}>About</a>
