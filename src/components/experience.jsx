@@ -1,20 +1,33 @@
 import React from "react";
+import flutterLogo from "../assets/images/logos/flutter.svg";
+import dartLogo from "../assets/images/logos/dart.png";
+import htmlLogo from "../assets/images/logos/html.svg";
+import cssLogo from "../assets/images/logos/css.svg";
+import jsLogo from "../assets/images/logos/JavaScript.png";
+import tailwindLogo from "../assets/images/logos/tailwind.png";
+import bootstrapLogo from "../assets/images/logos/bootstrap.svg";
+import reactLogo from "../assets/images/logos/React.png";
+import nodejsLogo from "../assets/images/logos/nodejs.png";
+import phpLogo from "../assets/images/logos/php.png";
+import githubLogo from "../assets/images/logos/github.png";
+import mysqlLogo from "../assets/images/logos/mysql.svg";
+import firebaseLogo from "../assets/images/logos/firebase.svg";
 
 export default function Experience() {
   const technologies = [
-    { name: "Flutter", image: "../images/logos/flutter.svg" },
-    { name: "Dart", image: "../images/logos/dart.png" },
-    { name: "HTML", image: "../images/logos/html.svg" },
-    { name: "CSS", image: "../images/logos/css.svg" },
-    { name: "JavaScript", image: "../images/logos/JavaScript.png" },
-    { name: "Tailwind", image: "../images/logos/tailwind.png" },
-    { name: "Bootstrap", image: "../images/logos/bootstrap.svg" },
-    { name: "React", image: "../images/logos/React.png" },
-    { name: "Node.js", image: "../images/logos/nodejs.png" },
-    { name: "Php", image: "../images/logos/php.png" },
-    { name: "GitHub", image: "../images/logos/github.png" },
-    { name: "MySQL", image: "../images/logos/mysql.svg" },
-    { name: "Firebase", image: "../images/logos/firebase.svg" },
+    { name: "Flutter", image: flutterLogo },
+    { name: "Dart", image: dartLogo },
+    { name: "HTML", image: htmlLogo },
+    { name: "CSS", image: cssLogo },
+    { name: "JavaScript", image: jsLogo },
+    { name: "Tailwind", image: tailwindLogo },
+    { name: "Bootstrap", image: bootstrapLogo },
+    { name: "React", image: reactLogo },
+    { name: "Node.js", image: nodejsLogo },
+    { name: "PHP", image: phpLogo },
+    { name: "GitHub", image: githubLogo },
+    { name: "MySQL", image: mysqlLogo },
+    { name: "Firebase", image: firebaseLogo },
   ];
 
   return (

@@ -1,25 +1,45 @@
 import ProjectCard from "./project_card";
 
 export default function Projects() {
+  const beGlamourousImages = Object.values(
+    import.meta.glob("../assets/images/be_glamourous/*.png", { eager: true })
+  ).map((img) => img.default);
+
+  const standardImages = Object.values(
+    import.meta.glob("../assets/images/standard/*.png", { eager: true })
+  ).map((img) => img.default);
+
   const projectList = [
     {
       title: "Be Glamourous",
       description:
         "Be Glamourous is an AI-powered mobile app that analyzes facial skin conditions from selfies to provide personalized skincare recommendations. It also features a social platform where users can share experiences, reviews, and skincare tips.",
       link: "https://github.com/rZoysa/BeGlamourous",
-      images: [
-        "../images/be_glamourous/1.png",
-        "../images/be_glamourous/2.png",
-        "../images/be_glamourous/3.png",
+      images: beGlamourousImages,
+      technologies: [
+        "Flutter",
+        "Dart",
+        "Python & YOLOv8",
+        "Flask",
+        "Node.js & Express.js",
+        "MySQL ",
       ],
-      technologies: ["Flutter", "Dart", "Python & YOLOv8", "Flask", "Node.js & Express.js", "MySQL "],
     },
     {
-      title: "Receipt Print Android Application and Reps, Receipts Manage System for Standard Industries (Pvt) Ltd",
-      description: "Working as a freelance fullstack developer in this project for Standard Industries (Pvt) Ltd Bombuwala",
+      title:
+        "Receipt Print Android Application and Reps, Receipts Manage System for Standard Industries (Pvt) Ltd",
+      description:
+        "Working as a freelance fullstack developer in this project for Standard Industries (Pvt) Ltd Bombuwala",
       link: "",
-      images: ["../images/standard/1.png"],
-      technologies: ["Flutter", "Dart", "React", "JavaScript", "Node.js & Express.js", "MySQL"],
+      images: standardImages,
+      technologies: [
+        "Flutter",
+        "Dart",
+        "React",
+        "JavaScript",
+        "Node.js & Express.js",
+        "MySQL",
+      ],
     },
   ];
 
