@@ -10,16 +10,17 @@ export default function Home() {
         transition={{ duration: 1.5 }}
       >
         <p className="text-4xl font-bold">Hi, I'm Rithik Zoysa 👋</p>
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        >
-          <p className="text-lg text-gray-400 mt-4">
-            Mobile App Developer | Flutter Enthusiast
-          </p>
-        </motion.h1>
       </motion.h1>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        <p className="text-lg text-gray-400 mt-4">
+          Mobile App Developer | Flutter Enthusiast
+        </p>
+      </motion.div>
 
       <a href="#projects">
         <button
