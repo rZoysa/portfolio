@@ -27,7 +27,7 @@ export default function Projects() {
     },
     {
       title:
-        "Receipt Print Android Application and Reps, Receipts Manage System for Standard Industries (Pvt) Ltd",
+        "Receipt Print Android Application and Reps, Receipts Management System for Standard Industries (Pvt) Ltd",
       description:
         "Working as a freelance fullstack developer in this project for Standard Industries (Pvt) Ltd Bombuwala",
       link: "",
