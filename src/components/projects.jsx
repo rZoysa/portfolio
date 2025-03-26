@@ -9,6 +9,10 @@ export default function Projects() {
     import.meta.glob("../assets/images/standard/*.png", { eager: true })
   ).map((img) => img.default);
 
+  const weatherappImages = Object.values(
+    import.meta.glob("../assets/images/weatherapp/*.png", { eager: true })
+  ).map((img) => img.default);
+
   const projectList = [
     {
       title: "Be Glamourous",
@@ -39,6 +43,19 @@ export default function Projects() {
         "JavaScript",
         "Node.js & Express.js",
         "MySQL",
+      ],
+    },
+    {
+      title:
+        "Weather App",
+      description:
+        "Developed a cross-platform weather application for both Android and iOS, integrating the OpenWeatherMap API to fetch real-time weather data. The app provides users with accurate weather forecasts, temperature updates, and other meteorological details in an intuitive and user-friendly interface.",
+      link: "https://github.com/rZoysa/weather_app",
+      images: weatherappImages,
+      technologies: [
+        "Flutter",
+        "Dart",
+        "API Integration",
       ],
     },
   ];
