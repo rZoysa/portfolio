@@ -13,6 +13,10 @@ export default function Projects() {
     import.meta.glob("../assets/images/weatherapp/*.png", { eager: true })
   ).map((img) => img.default);
 
+  const tomatoGameImages = Object.values(
+    import.meta.glob("../assets/images/tomato_game/*.png", { eager: true })
+  ).map((img) => img.default);
+
   const projectList = [
     {
       title: "Be Glamourous",
@@ -46,17 +50,20 @@ export default function Projects() {
       ],
     },
     {
-      title:
-        "Weather App",
+      title: "Weather App",
       description:
         "Developed a cross-platform weather application for both Android and iOS, integrating the OpenWeatherMap API to fetch real-time weather data. The app provides users with accurate weather forecasts, temperature updates, and other meteorological details in an intuitive and user-friendly interface.",
       link: "https://github.com/rZoysa/weather_app",
       images: weatherappImages,
-      technologies: [
-        "Flutter",
-        "Dart",
-        "API Integration",
-      ],
+      technologies: ["Flutter", "Dart", "API Integration"],
+    },
+    {
+      title: "Tomato Math Game",
+      description:
+        " Designed and developed the Tomato Math Game, a web-based interactive mathematical game utilizing the Tomato API. Built as a final project for my 3rd-year subject, the game features a real-time leaderboard, dynamic updates, and an intuitive user interface to enhance user engagement. Play the game from here.",
+      link: "https://github.com/rZoysa/Tomato-Game",
+      images: tomatoGameImages,
+      technologies: ["React.js", "JavaScript", "Firebase", "API Integration"],
     },
   ];
 

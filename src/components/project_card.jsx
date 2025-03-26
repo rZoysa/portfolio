@@ -67,7 +67,23 @@ export default function ProjectCard({
       {/* Project Details */}
       <div className="flex-1 text-center md:text-left md:ml-6">
         <h3 className="text-xl font-semibold">{title}</h3>
-        <p className="text-gray-400">{description}</p>
+        <p className="text-gray-400">
+          {description.split("here.").map((part, index, array) => (
+            <span key={index}>
+              {part}
+              {index !== array.length - 1 && (
+                <a
+                  href="https://tomato-game-nine.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 underline"
+                >
+                  here.
+                </a>
+              )}
+            </span>
+          ))}
+        </p>
         <div>
           {technologies && (
             <div className="flex flex-wrap justify-center md:justify-start mt-4">
