@@ -5,6 +5,10 @@ export default function Projects() {
     import.meta.glob("../assets/images/be_glamourous/*.png", { eager: true })
   ).map((img) => img.default);
 
+  const spacexImages = Object.values(
+    import.meta.glob("../assets/images/spacex/*.png", { eager: true })
+  ).map((img) => img.default);
+
   const standardImages = Object.values(
     import.meta.glob("../assets/images/standard/*.png", { eager: true })
   ).map((img) => img.default);
@@ -47,6 +51,18 @@ export default function Projects() {
         "JavaScript",
         "Node.js & Express.js",
         "MySQL",
+      ],
+    },
+    {
+      title: "SpaceX Explorer",
+      description:
+        "A sleek Flutter app to explore SpaceX rockets, launch and landing pads. Built with MVC architecture, real-time SpaceX API data, custom animations.",
+      link: "https://github.com/rZoysa/SpaceX",
+      images: spacexImages,
+      technologies: [
+        "Flutter",
+        "Dart",        
+        "API Integration",
       ],
     },
     {
