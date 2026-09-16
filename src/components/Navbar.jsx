@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { FiArrowUpRight, FiMenu, FiX } from "react-icons/fi";
 
 const navigation = [
@@ -10,6 +11,7 @@ const navigation = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -52,17 +54,30 @@ export default function Navbar() {
       </nav>
       <div
         id="mobile-navigation"
-        className="mobile-navigation container"
-        hidden={!menuOpen}
+        className={`mobile-navigation container${menuOpen ? " is-open" : ""}`}
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
-        {navigation.map(({ name, href }) => (
-          <a key={href} href={href} onClick={closeMenu}>
-            {name}
-          </a>
-        ))}
-        <a href="#contact" onClick={closeMenu}>
-          Contact <FiArrowUpRight aria-hidden="true" />
-        </a>
+        <AnimatePresence initial={false}>
+          {menuOpen && (
+            <motion.div
+              className="mobile-navigation-inner"
+              initial={prefersReducedMotion ? false : { height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.26, ease: "easeOut" }}
+            >
+              {navigation.map(({ name, href }) => (
+                <a key={href} href={href} onClick={closeMenu}>
+                  {name}
+                </a>
+              ))}
+              <a href="#contact" onClick={closeMenu}>
+                Contact <FiArrowUpRight aria-hidden="true" />
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

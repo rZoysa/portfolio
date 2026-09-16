@@ -1,4 +1,5 @@
 import { FiArrowUpRight } from "react-icons/fi";
+import Reveal from "./Reveal";
 
 const responsibilities = [
   "Develop and maintain production Flutter applications and responsive React web interfaces.",
@@ -15,7 +16,7 @@ export default function Experience() {
       aria-labelledby="experience-title"
     >
       <div className="container experience-layout">
-        <div className="experience-left">
+        <Reveal className="experience-left">
           <span className="eyebrow">
             <span className="section-index">02 /</span> THE JOURNEY
           </span>
@@ -29,8 +30,8 @@ export default function Experience() {
           <a href="/Rithik-Zoysa-CV.pdf" download className="text-link">
             Full experience in my CV <FiArrowUpRight aria-hidden="true" />
           </a>
-        </div>
-        <div className="experience-right">
+        </Reveal>
+        <Reveal className="experience-right" delay={0.1}>
           <div className="experience-card">
             <div className="experience-card-top">
               <span className="experience-active">
@@ -53,15 +54,17 @@ export default function Experience() {
               <span>Flutter</span>
               <span>React</span>
               <span>REST APIs</span>
-              <span>GCP</span>
+              <span>Google Cloud Platform</span>
+              <span>Azure DevOps</span>
               <span>CI/CD</span>
+              <span>Git</span>
             </div>
           </div>
           <p className="experience-footnote">
             Also delivering freelance mobile and web solutions for clients
             including Standard Industries and Dima Events.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

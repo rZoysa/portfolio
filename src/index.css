@@ -104,6 +104,37 @@ a:focus-visible {
   top: 12px;
 }
 
+/* Small interactions support the design without creating more moving content. */
+.button:active,
+.nav-contact:active,
+.image-controls button:active {
+  translate: 0 1px;
+}
+
+@media (hover: hover) {
+  .nav-links a {
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .23s ease-out;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
 /* Navigation */
 .site-header {
   position: sticky;
@@ -200,8 +231,9 @@ a:focus-visible {
   display: none;
 }
 
-.mobile-navigation[hidden] {
-  display: none;
+.mobile-navigation-inner {
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Hero */
@@ -712,12 +744,11 @@ a:focus-visible {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color .25s, transform .25s;
+  transition: border-color .25s;
 }
 
 .project-card:hover {
   border-color: #5c8885;
-  transform: translateY(-3px);
 }
 
 .project-image-stage {
@@ -1806,7 +1837,14 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 0;
+    border-top: 0;
+  }
+
+  .mobile-navigation.is-open {
     border-top: 1px solid var(--border);
+  }
+
+  .mobile-navigation-inner {
     padding-top: 7px;
     padding-bottom: 17px;
   }

@@ -5,6 +5,7 @@ import {
   FiLinkedin,
   FiMail,
 } from "react-icons/fi";
+import Reveal from "./Reveal";
 
 export default function Contact() {
   return (
@@ -13,7 +14,7 @@ export default function Contact() {
       className="contact section-shell"
       aria-labelledby="contact-title"
     >
-      <div className="container contact-panel">
+      <Reveal className="container contact-panel">
         <div className="contact-top">
           <span className="eyebrow">
             <span className="section-index">05 /</span> GET IN TOUCH
@@ -54,7 +55,7 @@ export default function Contact() {
             BACK TO TOP <FiArrowRight aria-hidden="true" />
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

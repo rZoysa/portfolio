@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import Reveal from "./Reveal";
 import {
   FiArrowUpRight,
   FiChevronLeft,
@@ -9,6 +11,7 @@ import {
 
 function ProjectVisual({ project }) {
   const [activeImage, setActiveImage] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   if (project.images?.length) {
     const image = project.images[activeImage];
@@ -16,14 +19,21 @@ function ProjectVisual({ project }) {
       <div
         className={`project-image-stage ${project.id === "standard-industries" ? "stage-standard" : "stage-glamour"}`}
       >
-        <img
-          src={image.src}
-          alt={image.alt}
-          loading="lazy"
-          decoding="async"
-          width="1292"
-          height="1358"
-        />
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.img
+            key={image.src}
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            decoding="async"
+            width="1292"
+            height="1358"
+            initial={prefersReducedMotion ? false : { opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={prefersReducedMotion ? undefined : { opacity: 0, x: -12 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.22 }}
+          />
+        </AnimatePresence>
         {project.images.length > 1 && (
           <div
             className="image-controls"
@@ -138,9 +148,9 @@ function ProjectVisual({ project }) {
   );
 }
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, revealDelay = 0 }) {
   return (
-    <article className="project-card">
+    <Reveal as="article" className="project-card" delay={revealDelay} hoverLift>
       <ProjectVisual project={project} />
       <div className="project-content">
         <div className="project-meta">
@@ -181,6 +191,6 @@ export default function ProjectCard({ project }) {
           )}
         </div>
       </div>
-    </article>
+    </Reveal>
   );
 }

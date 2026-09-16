@@ -1,5 +1,6 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import ProjectCard from "./project_card";
+import Reveal from "./Reveal";
 import { additionalProjects, featuredProjects } from "../data/portfolio";
 
 export default function Projects() {
@@ -10,7 +11,7 @@ export default function Projects() {
       aria-labelledby="projects-title"
     >
       <div className="container">
-        <div className="section-intro">
+        <Reveal className="section-intro">
           <div>
             <span className="eyebrow">
               <span className="section-index">01 /</span> SELECTED WORK
@@ -24,13 +25,17 @@ export default function Projects() {
             closer look at the problems I've helped solve and how I approached
             them.
           </p>
-        </div>
+        </Reveal>
         <div className="project-grid">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {featuredProjects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              revealDelay={(index % 2) * 0.1}
+            />
           ))}
         </div>
-        <div className="more-work-heading">
+        <Reveal className="more-work-heading">
           <div>
             <span className="eyebrow">MORE EXPLORATIONS</span>
             <h3>
@@ -40,10 +45,16 @@ export default function Projects() {
           <span className="more-work-note">
             PERSONAL & ACADEMIC BUILDS / 03
           </span>
-        </div>
+        </Reveal>
         <div className="more-work-grid">
           {additionalProjects.map((project, index) => (
-            <article className="more-work-card" key={project.name}>
+            <Reveal
+              as="article"
+              className="more-work-card"
+              key={project.name}
+              delay={Math.min(index * 0.09, 0.18)}
+              distance={18}
+            >
               <div className="more-work-image">
                 <img
                   src={project.image}
@@ -84,7 +95,7 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

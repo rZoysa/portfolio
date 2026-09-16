@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from "framer-motion";
 import {
   FiArrowDown,
   FiArrowUpRight,
@@ -7,7 +8,24 @@ import {
   FiSmartphone,
 } from "react-icons/fi";
 
+const entrance = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function Home() {
+  const prefersReducedMotion = useReducedMotion();
+  const heroMotion = prefersReducedMotion
+    ? { initial: false }
+    : {
+        initial: "hidden",
+        animate: "visible",
+        transition: { staggerChildren: 0.11, delayChildren: 0.08 },
+      };
+  const itemMotion = prefersReducedMotion
+    ? {}
+    : { variants: entrance, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } };
+
   return (
     <section
       id="home"
@@ -15,20 +33,20 @@ export default function Home() {
       aria-labelledby="hero-title"
     >
       <div className="container hero-grid">
-        <div className="hero-copy">
-          <div className="eyebrow hero-eyebrow">
+        <motion.div className="hero-copy" {...heroMotion}>
+          <motion.div className="eyebrow hero-eyebrow" {...itemMotion}>
             <span className="status-pulse" /> FLUTTER DEVELOPER / SOFTWARE
             ENGINEER
-          </div>
-          <h1 id="hero-title">
+          </motion.div>
+          <motion.h1 id="hero-title" {...itemMotion}>
             I build mobile apps that <em>make an impact.</em>
-          </h1>
-          <p className="hero-description">
+          </motion.h1>
+          <motion.p className="hero-description" {...itemMotion}>
             Hey, I'm Rithik - a software engineer focused on Flutter and Dart. I
             turn product ideas into intuitive, cross-platform experiences, from
             clean interfaces to API integrations and app releases.
-          </p>
-          <div className="hero-actions">
+          </motion.p>
+          <motion.div className="hero-actions" {...itemMotion}>
             <a className="button button-primary" href="#projects">
               Explore my work <FiArrowUpRight aria-hidden="true" />
             </a>
@@ -39,8 +57,8 @@ export default function Home() {
             >
               Download CV <FiDownload aria-hidden="true" />
             </a>
-          </div>
-          <div className="hero-social" aria-label="Professional profiles">
+          </motion.div>
+          <motion.div className="hero-social" {...itemMotion} aria-label="Professional profiles">
             <a
               href="https://github.com/rZoysa"
               target="_blank"
@@ -60,8 +78,8 @@ export default function Home() {
               <FiLinkedin aria-hidden="true" /> LinkedIn{" "}
               <FiArrowUpRight aria-hidden="true" />
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         <div
           className="hero-visual"
           role="img"
@@ -74,7 +92,17 @@ export default function Home() {
             CRAFTED FOR THE SMALL SCREEN <span>↗</span>
           </div>
           <div className="device-shadow" aria-hidden="true" />
-          <div className="device" aria-hidden="true">
+          <motion.div
+            className="device"
+            aria-hidden="true"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 28, rotate: 5 }}
+            animate={prefersReducedMotion
+              ? { opacity: 1, rotate: 9 }
+              : { opacity: 1, y: [0, -8, 0], rotate: 9 }}
+            transition={prefersReducedMotion
+              ? { duration: 0 }
+              : { y: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.3 }, opacity: { duration: 0.8, delay: 0.3 }, rotate: { duration: 0.9, delay: 0.3 } }}
+          >
             <div className="device-notch" />
             <div className="device-screen">
               <div className="device-top">
@@ -107,22 +135,32 @@ export default function Home() {
                 <span>02 / 02</span>
               </div>
             </div>
-          </div>
-          <div className="float-card float-card-one">
+          </motion.div>
+          <motion.div
+            className="float-card float-card-one"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 16, rotate: -6 }}
+            animate={{ opacity: 1, y: 0, rotate: -6 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.7, delay: prefersReducedMotion ? 0 : 0.72 }}
+          >
             <span className="float-icon">✳</span>
             <div>
               <small>BUILDING FOR</small>
               <strong>Android & iOS</strong>
             </div>
-          </div>
-          <div className="float-card float-card-two">
+          </motion.div>
+          <motion.div
+            className="float-card float-card-two"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 16, rotate: 4 }}
+            animate={{ opacity: 1, y: 0, rotate: 4 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.7, delay: prefersReducedMotion ? 0 : 0.86 }}
+          >
             <span className="float-indicator" />
             <div>
               <small>FROM IDEA TO</small>
               <strong>Production release</strong>
             </div>
             <FiArrowUpRight aria-hidden="true" />
-          </div>
+          </motion.div>
           {/* <div className="visual-small-label bottom-label">
             AN ILLUSTRATION OF MY WORKFLOW / NOT AN APP SCREENSHOT
           </div> */}

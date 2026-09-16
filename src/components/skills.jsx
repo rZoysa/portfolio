@@ -1,4 +1,5 @@
 import { skillGroups } from "../data/portfolio";
+import Reveal from "./Reveal";
 
 export default function Skills() {
   return (
@@ -8,7 +9,7 @@ export default function Skills() {
       aria-labelledby="skills-title"
     >
       <div className="container">
-        <div className="section-intro">
+        <Reveal className="section-intro">
           <div>
             <span className="eyebrow">
               <span className="section-index">03 /</span> MY TOOLKIT
@@ -23,10 +24,10 @@ export default function Skills() {
             Flutter is my specialty, supported by the frontend, backend, and
             cloud skills needed to build complete experiences.
           </p>
-        </div>
+        </Reveal>
         <div className="skills-grid">
-          {skillGroups.map((group) => (
-            <article key={group.title} className="skill-card">
+          {skillGroups.map((group, index) => (
+            <Reveal as="article" key={group.title} className="skill-card" delay={index * 0.08} distance={18}>
               <div className="skill-number">
                 {group.number} <span>↗</span>
               </div>
@@ -37,7 +38,7 @@ export default function Skills() {
                   <li key={skill}>{skill}</li>
                 ))}
               </ul>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

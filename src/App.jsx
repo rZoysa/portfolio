@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Home from "./components/home";
 import Projects from "./components/projects";
@@ -9,7 +10,7 @@ import Footer from "./components/footer";
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -23,6 +24,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }

@@ -1,4 +1,5 @@
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
+import Reveal from "./Reveal";
 
 export default function About() {
   return (
@@ -8,13 +9,13 @@ export default function About() {
       aria-labelledby="about-title"
     >
       <div className="container about-layout">
-        <div className="about-mark" aria-hidden="true">
+        <Reveal className="about-mark" aria-hidden="true">
           <div className="about-symbol">
             R<span>.</span>
           </div>
           <span>CURIOUS BY NATURE. ENGINEER BY PRACTICE.</span>
-        </div>
-        <div className="about-content">
+        </Reveal>
+        <Reveal className="about-content" delay={0.12}>
           <span className="eyebrow">
             <span className="section-index">04 /</span> A LITTLE ABOUT ME
           </span>
@@ -65,7 +66,7 @@ export default function About() {
           <a className="text-link" href="#contact">
             Let's connect <FiArrowUpRight aria-hidden="true" />
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

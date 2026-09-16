@@ -27,6 +27,10 @@ Deploy the generated `dist/` directory to a static host such as Vercel. The exis
 - The former Tomato Math Game live-demo link is intentionally omitted until it can be verified; the existing GitHub source link is retained.
 - The project could not be installed or built in the creation environment because package downloads were unavailable. Run `npm ci`, `npm run lint`, and `npm run build` in an environment with package-registry access before deployment.
 
+## Motion and current roadmap
+
+Animations use the existing `framer-motion` dependency. `src/components/Reveal.jsx` centralizes scroll-in behavior; hero animation lives in `home.jsx`, the mobile menu in `Navbar.jsx`, and the screenshot transition in `project_card.jsx`. Motion is subtle, plays once on scroll, and respects OS reduced-motion preferences.
+
 ## Design and technical decisions
 
 - Preserves the supplied React 19 + Vite 6 + Tailwind 4 foundation. No rebuild into a different framework.
