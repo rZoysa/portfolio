@@ -1,36 +1,61 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import {
+  FiArrowRight,
+  FiArrowUpRight,
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+} from "react-icons/fi";
+import Reveal from "./Reveal";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 text-center">
-      <h2 className="text-3xl font-semibold">Let's Connect</h2>
-      <div className="flex justify-center gap-6 mt-4">
-        <a
-          href="https://github.com/rZoysa"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub size={30} className="cursor-pointer hover:text-gray-400" />
+    <section
+      id="contact"
+      className="contact section-shell"
+      aria-labelledby="contact-title"
+    >
+      <Reveal className="container contact-panel">
+        <div className="contact-top">
+          <span className="eyebrow">
+            <span className="section-index">05 /</span> GET IN TOUCH
+          </span>
+          <span>HAVE SOMETHING IN MIND? ↗</span>
+        </div>
+        <h2 id="contact-title">
+          Let's build something <em>meaningful.</em>
+        </h2>
+        <p>
+          Looking to connect about Flutter, mobile engineering, or a project?
+          I'd love to hear about it.
+        </p>
+        <a className="contact-email" href="mailto:rithikzoysa@gmail.com">
+          <FiMail aria-hidden="true" /> rithikzoysa@gmail.com{" "}
+          <FiArrowUpRight aria-hidden="true" />
         </a>
-        <a
-          href="https://www.linkedin.com/in/rithikzoysa/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin
-            size={30}
-            className="cursor-pointer hover:text-gray-400"
-          />
-        </a>
-        <address>
-          <a href="mailto:rithikzoysa@gmail.com">
-            <FaEnvelope
-              size={30}
-              className="cursor-pointer hover:text-gray-400"
-            />
+        <div className="contact-bottom">
+          <div className="contact-socials">
+            <a
+              href="https://github.com/rZoysa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiGithub aria-hidden="true" /> GitHub{" "}
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rithikzoysa/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiLinkedin aria-hidden="true" /> LinkedIn{" "}
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </div>
+          <a href="#home" className="back-top">
+            BACK TO TOP <FiArrowRight aria-hidden="true" />
           </a>
-        </address>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

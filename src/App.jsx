@@ -1,24 +1,29 @@
-import React from "react";
+import { MotionConfig } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Home from "./components/home";
-import About from "./components/about";
-import Experience from "./components/experience";
-import Qualification from "./components/qualification";
 import Projects from "./components/projects";
+import Experience from "./components/experience";
+import Skills from "./components/skills";
+import About from "./components/about";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950 text-white">
+    <MotionConfig reducedMotion="user">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Navbar />
-      <Home />
-      <About />
-      <Experience />
-      <Qualification />
-      <Projects />
-      <Contact />
+      <main id="main">
+        <Home />
+        <Projects />
+        <Experience />
+        <Skills />
+        <About />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </MotionConfig>
   );
 }

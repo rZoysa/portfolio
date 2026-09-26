@@ -1,44 +1,84 @@
 import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { FiArrowUpRight, FiMenu, FiX } from "react-icons/fi";
+
+const navigation = [
+  { name: "Work", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
+  { name: "About", href: "#about" },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className="bg-white/0 backdrop-blur-lg text-white p-4 sticky top-0 z-50 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">Rithik Zoysa</h1>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-2xl">
-            {isOpen ? <FiX /> : <FiMenu />}
-          </button>
+    <header className="site-header">
+      <nav className="nav-shell container" aria-label="Main navigation">
+        <a
+          className="brand"
+          href="#home"
+          onClick={closeMenu}
+          aria-label="Rithik Zoysa, back to top"
+        >
+          rithik<span className="brand-dot">.</span>
+          <span className="brand-surname">zoysa</span>
+        </a>
+        <div className="nav-links">
+          {navigation.map(({ name, href }) => (
+            <a key={href} href={href}>
+              {name}
+            </a>
+          ))}
         </div>
-
-        {/* Navigation Links - Desktop */}
-        <div className="hidden md:flex font-bold text-gray-300">
-          <a href="#" className="mx-3 hover:text-white hover:scale-110 transition-transform duration-200">Home</a>
-          <a href="#about" className="mx-3 hover:text-white hover:scale-110 transition-transform duration-200">About</a>
-          <a href="#experience" className="mx-3 hover:text-white hover:scale-110 transition-transform duration-200">Experience</a>
-          <a href="#projects" className="mx-3 hover:text-white hover:scale-110 transition-transform duration-200">Projects</a>
-          <a href="#contact" className="mx-3 hover:text-white hover:scale-110 transition-transform duration-200">Contact</a>
-        </div>
-      </div>
-
-      {/* Mobile Menu - Smooth Height and Opacity Animation */}
+        <a className="nav-contact" href="#contact">
+          Let's talk <FiArrowUpRight aria-hidden="true" />
+        </a>
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          {menuOpen ? (
+            <FiX aria-hidden="true" />
+          ) : (
+            <FiMenu aria-hidden="true" />
+          )}
+        </button>
+      </nav>
       <div
-        className={`overflow-hidden text-white flex flex-col items-center font-bold
-        transition-all duration-500 ease-in-out
-        ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}
-        style={{ maxHeight: isOpen ? "300px" : "0px", transitionProperty: "max-height, opacity" }}  // control max-height and opacity
+        id="mobile-navigation"
+        className={`mobile-navigation container${menuOpen ? " is-open" : ""}`}
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
-        <a href="#" className="py-2 text-lg hover:text-gray-300" onClick={() => setIsOpen(false)}>Home</a>
-        <a href="#about" className="py-2 text-lg hover:text-gray-300" onClick={() => setIsOpen(false)}>About</a>
-        <a href="#experience" className="py-2 text-lg hover:text-gray-300" onClick={() => setIsOpen(false)}>Experience</a>
-        <a href="#projects" className="py-2 text-lg hover:text-gray-300" onClick={() => setIsOpen(false)}>Projects</a>
-        <a href="#contact" className="py-2 text-lg hover:text-gray-300" onClick={() => setIsOpen(false)}>Contact</a>
+        <AnimatePresence initial={false}>
+          {menuOpen && (
+            <motion.div
+              className="mobile-navigation-inner"
+              initial={prefersReducedMotion ? false : { height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.26, ease: "easeOut" }}
+            >
+              {navigation.map(({ name, href }) => (
+                <a key={href} href={href} onClick={closeMenu}>
+                  {name}
+                </a>
+              ))}
+              <a href="#contact" onClick={closeMenu}>
+                Contact <FiArrowUpRight aria-hidden="true" />
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </header>
   );
 }

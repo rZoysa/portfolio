@@ -1,8 +1,10 @@
 export default function Footer() {
-    return (
-      <footer className="bg-gray-800 text-white text-center py-4">
-        <p>© {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
-      </footer>
-    );
-  }
-  
+  return (
+    <footer className="footer">
+      <div className="container footer-inner">
+        <span>© {new Date().getFullYear()} Rithik Zoysa.</span>
+        <span>DESIGNED WITH INTENTION · BUILT WITH REACT</span>
+      </div>
+    </footer>
+  );
+}

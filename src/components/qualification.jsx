@@ -2,10 +2,7 @@ import React from "react";
 
 export default function Qualification() {
   return (
-    <div
-      name="qualification"
-      className="w-full py-20"
-    >
+    <div name="qualification" className="w-full py-20">
       <div className="max-w-screen-lg mx-auto justify-center w-full text-white">
         <div>
           <p className="text-3xl font-bold flex justify-center">
